@@ -94,6 +94,19 @@ export const usePlayerControlsProps = () => {
     [dispatch, seek, goBackThreshold]
   );
 
+    useEffect(() => {
+    const handleMiddleClick = (event) => {
+      if (event.button === 1) {
+        event.preventDefault();
+        goForward();
+      }
+    };
+
+    window.addEventListener('mouseup', handleMiddleClick);
+    return () => window.removeEventListener('mouseup', handleMiddleClick);
+  }, [goForward]);
+
+
   return {
     goBackDisabled: !couldBack,
     goForwardDisabled: !couldForward,
