@@ -94,7 +94,7 @@ export const usePlayerControlsProps = () => {
     [dispatch, seek, goBackThreshold]
   );
 
-    useEffect(() => {
+    useEffect(() => { 
     const handleMiddleClick = (event) => {
       if (event.button === 1) {
         event.preventDefault();
